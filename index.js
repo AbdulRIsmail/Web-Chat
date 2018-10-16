@@ -1,4 +1,5 @@
 var express = require('express');
+var colors = require('colors');
 var app = express();
 var socket = require('socket.io');
 var port = process.env.PORT || 3000;
@@ -17,7 +18,7 @@ app.use(express.static('public'));
 var io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('Made Socket Connection', socket.id)
+  console.log('Made Socket Connection', colors.yellow(socket.id))
 
   // Handle Chat Event
   socket.on('chat', (data) => {

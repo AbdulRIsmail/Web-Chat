@@ -1,36 +1,37 @@
 // Make Connection
-var socket = io.connect('https://abdulchat.herokuapp.com/')
+// var socket = io.connect('https://abdulchat.herokuapp.com/')
+var socket = io.connect('http://localhost:3000/')
 
 // Query DOM
 
 var message = document.getElementById('message');
-var handle = document.getElementById('handle');
+var name = document.getElementById('name');
 var btn = document.getElementById('send');
 var output = document.getElementById('output');
 var feedback = document.getElementById('feedback');
 
 // Emit Events
 btn.addEventListener('click', () => {
-  if (handle.value === '' || message.value === '') {
+  if (name.value === '' || message.value === '') {
     console.log('Please use name and password');
     return
   }
 
   socket.emit('chat', {
     message: message.value,
-    handle: handle.value,
+    name: name.value,
   })
 });
 
 message.addEventListener('keypress', () => {
-  socket.emit('typing', handle.value);
+  socket.emit('typing', name.value);
 });
 
 
 // Listen For Events
 socket.on('chat', (data) => {
   feedback.innerHTML = '';
-  output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>'
+  output.innerHTML += '<p><strong>' + data.name + ': </strong>' + data.message + '</p>'
   message.value = '';
 });
 
