@@ -10,14 +10,15 @@ var server = app.listen(port, () => {
 
 
 // Static Files - make them global and work within express
-app.use(express.static('public'));
+app.use(express.static('public/views'));
+app.use(express.static('public/'));
 
 
 // Socket Setup
 var io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('Made Socket Connection', colors.yellow(socket.id))
+  console.log('New Socket Connection', colors.yellow(socket.id))
 
   // Handle Chat Event
   socket.on('chat', (data) => {
@@ -26,6 +27,15 @@ io.on('connection', (socket) => {
 
   socket.on('typing', (data) => {
     socket.broadcast.emit('typing', data)
+  })
+
+  // Sketch
+  socket.on('sketch', (data) => {
+    socket.broadcast.emit('sketch', data)
+  })
+
+  socket.on('clearSketch', (data) => {
+    io.sockets.emit('clearSketch', data)
   })
 
 });

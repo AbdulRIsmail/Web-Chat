@@ -1,6 +1,6 @@
 // Make Connection
-var socket = io.connect('https://abdulchat.herokuapp.com/')
-// var socket = io.connect('http://localhost:3000/')
+// var socket = io.connect('https://abdulchat.herokuapp.com/')
+var socket = io.connect('http://localhost:3000/')
 
 // Query DOM
 

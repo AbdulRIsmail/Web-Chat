@@ -9,7 +9,6 @@ home = () => {
 draw = () => {
   var draw = document.getElementById('draw')
   var home = document.getElementById('home')
-
   draw.style.display = 'none'
   home.style.display = 'block'
 

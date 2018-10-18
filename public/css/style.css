@@ -1,6 +1,35 @@
 body{
-    font-family: 'Nunito', Ubuntu, sans-serif;
+  font-family: Ubuntu, 'Nunito', sans-serif;
+  overflow: hidden;
 }
+
+nav {
+  text-align: center;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.6em;
+  transition: 0.4s ease-in-out;
+  border-bottom: 1px solid black;
+}
+
+nav li:hover {
+  transform: scale(1.2);
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  transition: 0.4s ease-in-out;
+}
+
 
 h2{
     font-size: 18px;
