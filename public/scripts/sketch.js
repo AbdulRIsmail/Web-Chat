@@ -1,5 +1,5 @@
-var socket = io.connect('https://abdulchat.herokuapp.com/')
-// var socket = io.connect('http://localhost:3000/');
+// var socket = io.connect('https://abdulchat.herokuapp.com/')
+var socket = io.connect('http://localhost:3000/');
 var backgroundColor = 51;
 
 setup = () => {
@@ -16,7 +16,7 @@ setup = () => {
   })
 }
 
-mouseDragged = () => {
+draw = () => {
   if (mouseIsPressed) {
     fill(0);
     ellipse(mouseX, mouseY, 20);
