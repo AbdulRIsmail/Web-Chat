@@ -1,11 +1,11 @@
-var socket = io.connect('https://abdulchat.herokuapp.com/')
-// var socket = io.connect('http://localhost:3000/');
+// var socket = io.connect('https://abdulchat.herokuapp.com/')
+var socket = io.connect('http://localhost:3000/');
 var backgroundColor = 51;
 var drawColor = 255;
 var size = 20;
 
 setup = () => {
-  createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(2000, 1000);
   background(backgroundColor);
 
   socket.on('sketch', (data) => {
