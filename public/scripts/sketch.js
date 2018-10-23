@@ -2,6 +2,7 @@ var socket = io.connect('https://abdulchat.herokuapp.com/')
 // var socket = io.connect('http://localhost:3000/');
 var backgroundColor = 51;
 var drawColor = 255;
+var size = 20;
 
 setup = () => {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -10,7 +11,7 @@ setup = () => {
   socket.on('sketch', (data) => {
     fill(0);
     noStroke();
-    ellipse(data.mouseX, data.mouseY, 20);
+    ellipse(data.mouseX, data.mouseY, size);
   })
 
   socket.on('clearSketch', (data) => {
@@ -22,7 +23,7 @@ mouseDragged = () => {
   if (mouseIsPressed) {
     fill(drawColor);
     noStroke();
-    ellipse(mouseX, mouseY, 20);
+    ellipse(mouseX, mouseY, size);
   } else {
     fill(drawColor);
     noStroke();
@@ -44,8 +45,10 @@ clearSketch = () => {
 
 rubberMode = () => {
   drawColor = 51;
+  size = 60;
 }
 
 drawMode = () => {
   drawColor = 255;
+  size = 20;
 }
