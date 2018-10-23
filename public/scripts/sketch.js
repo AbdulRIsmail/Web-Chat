@@ -11,7 +11,7 @@ setup = () => {
   socket.on('sketch', (data) => {
     fill(0);
     noStroke();
-    ellipse(data.mouseX, data.mouseY, size);
+    ellipse(data.mouseX, data.mouseY, 20);
   })
 
   socket.on('clearSketch', (data) => {
@@ -23,7 +23,7 @@ mouseDragged = () => {
   if (mouseIsPressed) {
     fill(drawColor);
     noStroke();
-    ellipse(mouseX, mouseY, size);
+    ellipse(mouseX, mouseY, 20);
   } else {
     fill(drawColor);
     noStroke();
@@ -45,10 +45,8 @@ clearSketch = () => {
 
 rubberMode = () => {
   drawColor = 51;
-  size = 60;
 }
 
 drawMode = () => {
   drawColor = 255;
-  size = 20;
 }
