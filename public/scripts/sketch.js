@@ -9,7 +9,7 @@ setup = () => {
   background(backgroundColor);
 
   socket.on('sketch', (data) => {
-    fill(0);
+    fill(drawColor);
     noStroke();
     ellipse(data.mouseX, data.mouseY, 20);
   })
