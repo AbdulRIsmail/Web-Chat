@@ -12,7 +12,12 @@ var server = app.listen(port, () => {
 // Static Files - make them global and work within express
 app.use(express.static('public/views'));
 app.use(express.static('public/'));
+app.set("view engine", "html")
 
+
+app.get('/createroom', (req, res) => {
+  res.sendFile(__dirname + "/public/views/chat.html");
+})
 
 // Socket Setup
 var io = socket(server);

@@ -13,14 +13,24 @@
 
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="/chat">Chat</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Chat</a></li>
       <li><a href="sketch.html">Sketch</a></li>
     </ul>
   </nav>
 
-  <button type="button" name="button" style="width: 200px; height:50px;">Create Room</button>
-  <button type="button" name="button" style="width: 200px; height:50px;">Join Room</button>
+    <div id="mario-chat">
+      <div id="chat-window">
+        <div id="output"></div>
+        <div id="feedback"></div>
+      </div>
 
+      <input id="handle" type="text" placeholder="Handle"/>
+      <input id="message" type="text" placeholder="Message"/>
+      <button id="send">Send</button>
+    </div>
+
+<script src="../scripts/script.js"></script>
+<script src="../scripts/chat.js"></script>
 </body> 
 </html>
