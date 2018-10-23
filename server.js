@@ -43,4 +43,11 @@ io.on('connection', (socket) => {
     io.sockets.emit('clearSketch', data)
   })
 
+  socket.on('rubber', (data) => {
+    io.sockets.emit('rubber', data)
+  })
+
+  socket.on('draw', (data) => {
+    io.sockets.emit('draw', data)
+  })
 });
