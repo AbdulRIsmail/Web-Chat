@@ -1,4 +1,4 @@
-var socket = io.connect('https://abdulchat.herokuapp.com/')
+var socket = io.connect('http://abdulchat.herokuapp.com/')
 // var socket = io.connect('http://localhost:3000/');
 var backgroundColor = 51;
 var drawColor = 255;

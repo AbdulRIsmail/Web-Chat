@@ -1,15 +1,8 @@
-home = () => {
+const database = require('../../client/database.js');
 
-  var home = document.getElementById('home')
-  var draw = document.getElementById('draw')
-  draw.style.display = 'block'
-  home.style.display = 'none'
-}
+const roomName = document.getElementById('roomName');
+const roomPin = document.getElementById('roomPin');
 
-draw = () => {
-  var draw = document.getElementById('draw')
-  var home = document.getElementById('home')
-  draw.style.display = 'none'
-  home.style.display = 'block'
-
+createRoom = () => {
+  database.createRoom(roomName, roomPin);
 }
