@@ -1,4 +1,4 @@
-var socket = io.connect('http://abdulchat.herokuapp.com/')
+var socket = io.connect('http://abdulchat.herokuapp.com/');
 // var socket = io.connect('http://localhost:3000/');
 var backgroundColor = 51;
 var drawColor = 255;
@@ -12,12 +12,12 @@ setup = () => {
     fill(drawColor);
     noStroke();
     ellipse(data.mouseX, data.mouseY, brushSize);
-  })
+  });
 
   socket.on('clearSketch', (data) => {
     background(backgroundColor)
   })
-}
+};
 
 mouseDragged = () => {
   if (mouseIsPressed) {
@@ -33,7 +33,7 @@ mouseDragged = () => {
     mouseX: mouseX,
     mouseY: mouseY
   })
-}
+};
 
 clearSketch = () => {
   if (confirm('Are you sure you want to clear the sketch?')) {
@@ -41,14 +41,14 @@ clearSketch = () => {
       background: backgroundColor
     });
   }
-}
+};
 
 rubberMode = () => {
   drawColor = 51;
   brushSize = 60;
-}
+};
 
 drawMode = () => {
   drawColor = 255;
   brushSize = 20;
-}
+};

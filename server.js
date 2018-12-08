@@ -11,6 +11,10 @@ server = app.listen(port, () => {
     console.log(`Listening To Port ${port}`)
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/public/views/chat.html");
+});
+
 // Socket Setup
 var io = socket(server);
 
@@ -57,18 +61,18 @@ app.post('/api/createroom', (req, res) => {
     const roomName = req.body.roomName;
     const roomPin = req.body.roomPin;
 
-    if (roomName == '' && roomPin == '') {
-      res.send('Please enter room name and room pin!')
+    if (roomName === '' && roomPin === '') {
+      res.send('Please enter room name and room pin!');
       return
     }
 
-    if (roomName == '') {
-      res.send('room name is blank!')
+    if (roomName === '') {
+      res.send('room name is blank!');
       return
     }
 
-    if (roomPin == '') {
-      res.send('room pin is blank!')
+    if (roomPin === '') {
+      res.send('room pin is blank!');
       return
     }
 
@@ -90,7 +94,6 @@ app.post('/api/createroom', (req, res) => {
 
     if (doc) {
       res.send('room exists');
-      return
     } else {
       // res.send('created room')
       await roomSchema.createRoom(roomName, roomPin);
@@ -99,7 +102,7 @@ app.post('/api/createroom', (req, res) => {
     }
 
   })()
-})
+});
 
 
 app.post('/api/joinroom', (req, res) => {
@@ -107,8 +110,8 @@ app.post('/api/joinroom', (req, res) => {
     const roomName = req.body.roomName;
     const roomPin = req.body.roomPin;
 
-    if (roomName == '' || roomPin == '') {
-      res.send('Missing Fields!')
+    if (roomName === '' || roomPin === '') {
+      res.send('Missing Fields!');
       return
     }
 
@@ -118,7 +121,7 @@ app.post('/api/joinroom', (req, res) => {
     if (doc) {
 
       // checks if the pin matches the room
-      if (doc.roomPin == roomPin) {
+      if (doc.roomPin === roomPin) {
         res.send('Joining Room!');
         const token = jwt.sign({roomId: doc._id, roomName: roomName, roomPin: roomPin}, 'supersecret');
         console.log(token);
@@ -130,7 +133,7 @@ app.post('/api/joinroom', (req, res) => {
     }
 
   })()
-})
+});
 
 app.post('/api/dashboard', (req, res) => {
   const token = req.body.token;
@@ -171,7 +174,7 @@ app.post('/api/removeComment', (req, res) => {
       res.send(err);
     }
   });
-})
+});
 
 
 
